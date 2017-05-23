@@ -36,8 +36,8 @@ Question
 Answers
 ===
 1) Done with tests.
-2) I used distinct() function
-3) Spark use full multi core CPU power
+2) I used distinct() function.
+3) Spark use full multi core CPU power.
 4) I used 'javaOptions += "-Xmx512g"' option for heap, perhaps on machine with 500mb the app will be swapped. 
 Memory monitoring is not implemented yet. I think grafite(https://graphiteapp.org/) or kairosdb(https://kairosdb.github.io/ match simple deploy) + grafana(https://grafana.com/) then what should.
 5) It's not a problem for Spark, because it was originally written disturbed, only provide the required number of servers.
