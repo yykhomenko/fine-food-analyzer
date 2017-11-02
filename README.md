@@ -9,7 +9,7 @@ Download csv file https://www.kaggle.com/snap/amazon-fine-food-reviews
 
 3) Finding 1000 most used words in the reviews
 
-4) Copy all lines to new file with translate comments. I use stub for translation.
+4) Copy all lines to new file with translate comments. Use stub for translation.
 
 Clone
 ===
