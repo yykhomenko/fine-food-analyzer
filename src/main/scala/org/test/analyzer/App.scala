@@ -6,7 +6,7 @@ import org.test.analyzer.helper.CommonHelper._
 import org.test.analyzer.service.Analyzer._
 import org.test.analyzer.service.Translator._
 
-object Main extends App {
+object App extends App {
 
   val CommandLineExtractor(filePath, action, fromLang, toLang, outPath) = args
 
