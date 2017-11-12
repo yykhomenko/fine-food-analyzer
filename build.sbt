@@ -4,9 +4,10 @@ version := "1.0"
 
 scalaVersion := "2.11.11"
 
-libraryDependencies += "org.apache.spark" % "spark-core_2.11" % "2.1.1"
-libraryDependencies += "org.apache.spark" % "spark-sql_2.11" % "2.1.1"
+libraryDependencies += "org.apache.spark" % "spark-core_2.11" % "2.2.0"
+libraryDependencies += "org.apache.spark" % "spark-sql_2.11" % "2.2.0"
 
-libraryDependencies += "org.specs2" %% "specs2-core" % "3.8.9" % "test"
+libraryDependencies += "junit" % "junit" % "4.12" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.0-SNAP7" % "test"
 
 javaOptions += "-Xmx512g"
