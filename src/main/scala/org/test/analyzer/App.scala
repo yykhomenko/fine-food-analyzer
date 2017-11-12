@@ -14,15 +14,15 @@ object App extends App {
   val startMem = currentHeap
 
   action match {
-    case "1" => mostActiveUsers(rddFrom(filePath), 1000)
+    case "1" => mostActiveUsers(rddFrom(filePath))(1000)
       .foreach(println(_))
       stopContext()
 
-    case "2" => mostCommentedFoodItems(rddFrom(filePath), 1000)
+    case "2" => mostCommentedFoodItems(rddFrom(filePath))(1000)
       .foreach(println(_))
       stopContext()
 
-    case "3" => mostUsedWords(rddFrom(filePath), 1000)
+    case "3" => mostUsedWords(rddFrom(filePath))(1000)
       .foreach(println(_))
       stopContext()
 
@@ -30,7 +30,7 @@ object App extends App {
       printCheckDirectory(outPath)
       stopSession()
 
-    case _   => printUnknownActionAndExit()
+    case _ => printUnknownActionAndExit()
   }
 
   printMemoryConsumed(startMem)
