@@ -1,3 +1,16 @@
+Exercises
+===
+
+Download csv file https://www.kaggle.com/snap/amazon-fine-food-reviews
+
+1) Finding 1000 most active users (profile names)
+
+2) Finding 1000 most commented food items (item ids).
+
+3) Finding 1000 most used words in the reviews
+
+4) Copy all lines to new file with translate comments. Use stub for translation.
+
 Clone
 ===
 ```
