@@ -14,15 +14,15 @@ class AnalyzerTest extends FunSuite {
   val rdd: RDD[String] = rddFrom(getClass.getClassLoader.getResource("test_reviews.csv").getFile)
 
   test("mostActiveUsers function works correctly") {
-    assert(mostActiveUsers(rdd, 3) === Array("Dan", "Fran W.", "Jared Castle"))
+    assert(mostActiveUsers(rdd)(3) === Array("Dan", "Fran W.", "Jared Castle"))
   }
 
   test("mostCommentedFoodItems function works correctly") {
-    assert(mostCommentedFoodItems(rdd, 3) === Array("B001RVFDOO", "B004391DK0", "B005K4Q1VI"))
+    assert(mostCommentedFoodItems(rdd)(3) === Array("B001RVFDOO", "B004391DK0", "B005K4Q1VI"))
   }
 
   test("mostUsedWords function works correctly") {
-    assert(mostUsedWords(rdd, 3) === Array("and", "i", "the"))
+    assert(mostUsedWords(rdd)(3) === Array("and", "i", "the"))
   }
 
   test("translateComments function works correctly") {
