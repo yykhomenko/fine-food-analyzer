@@ -60,7 +60,10 @@ Result
 ===
 This program was tested on ultrabook with parameters: i7 6700HQ, Ram: 16gb, SSD: 256gb, Win10Pro, Java 8u131. 
 File Reviews.csv have size 286.9mb and 568 455 lines. Here's what happened:
-1) 14s 280mb
-2) 14s 276mb
-3) 20s 200mb
-4) 16s 271mb
+```    
+   Time RAM
+1) 14s  280mb
+2) 14s  276mb
+3) 20s  200mb
+4) 16s  271mb
+```
