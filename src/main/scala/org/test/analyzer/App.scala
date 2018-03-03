@@ -33,6 +33,6 @@ object App extends App {
     case _ => printUnknownActionAndExit()
   }
 
-  printMemoryConsumed(startMem)
   printSpentTime(startTime)
+  printMemoryConsumed(startMem)
 }

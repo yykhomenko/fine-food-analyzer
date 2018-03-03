@@ -23,7 +23,7 @@ object CommonHelper {
 
   def printCheckDirectory(path: String) = println("\nTranslate completed! Check the directory \'" + path + '\'')
 
-  def printMemoryConsumed(startMem: Long) = println(s"\nMemory consumed: ${toMb(currentHeap - startMem)}mb.")
-
   def printSpentTime(startTime: Long) = println(s"Spent time: ${toMs(currentTime - startTime)}ms.")
+
+  def printMemoryConsumed(startMem: Long) = println(s"\nMemory consumed: ${toMb(currentHeap - startMem)}mb.")
 }
