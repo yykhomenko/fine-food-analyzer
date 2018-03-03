@@ -58,7 +58,7 @@ Memory monitoring is not implemented yet. I think grafite(https://graphiteapp.or
 
 Result
 ===
-This program was tested on ultrabook with parameters: i7 6700HQ, Ram: 16gb, SSD: 256gb, Win10Pro, Java 8u131. 
+The program based on library Apache Spark. It was tested on ultrabook with parameters: i7 6700HQ, Ram: 16gb, SSD: 256gb, Win10Pro, Java 8u131. 
 File Reviews.csv have size 286.9mb and 568 455 lines. Here's what happened:
 ```    
    Time RAM
