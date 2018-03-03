@@ -12,15 +12,15 @@ class TestApp extends WordSpec with Matchers {
 
   "The fine food analyzer" should {
 
-    "search most active users" in {
+    "search the most active users" in {
       assert(mostActiveUsers(reviews)(3) === Array("Dan", "Fran W.", "Jared Castle"))
     }
 
-    "search most commented food items" in {
+    "search the most commented food items" in {
       assert(mostCommentedFoodItems(reviews)(3) === Array("B001RVFDOO", "B004391DK0", "B005K4Q1VI"))
     }
 
-    "search most used words" in {
+    "search the most used words" in {
       assert(mostUsedWords(reviews)(3) === Array("and", "i", "the"))
     }
 
