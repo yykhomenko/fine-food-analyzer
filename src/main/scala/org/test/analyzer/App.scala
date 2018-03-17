@@ -14,21 +14,14 @@ object App extends App {
   val startMem = currentHeap
 
   action match {
-    case "1" => mostActiveUsers(rddFrom(filePath))(1000)
-      .foreach(println(_))
-      stopContext()
+    case "1" => mostActiveUsers(rddFrom(filePath))(1000).foreach(println)
 
-    case "2" => mostCommentedFoodItems(rddFrom(filePath))(1000)
-      .foreach(println(_))
-      stopContext()
+    case "2" => mostCommentedFoodItems(rddFrom(filePath))(1000).foreach(println)
 
-    case "3" => mostUsedWords(rddFrom(filePath))(1000)
-      .foreach(println(_))
-      stopContext()
+    case "3" => mostUsedWords(rddFrom(filePath))(1000).foreach(println)
 
     case "4" => translateFileComments(dfFrom(filePath), fromLang, toLang, outPath)
-      printCheckDirectory(outPath)
-      stopSession()
+                printCheckDirectory(outPath)
 
     case _ => printUnknownActionAndExit()
   }
