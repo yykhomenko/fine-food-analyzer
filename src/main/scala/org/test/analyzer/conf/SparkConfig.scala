@@ -12,9 +12,4 @@ object SparkConfig {
 
   def dfFrom(path: String) = ss.read.option("header", "true").csv(path)
   def rddFrom(path: String) = { sc.setLogLevel("ERROR"); sc.textFile(path) }
-
-  sys.addShutdownHook({
-    sc.stop()
-    ss.stop()
-  })
 }

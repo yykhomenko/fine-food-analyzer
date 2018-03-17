@@ -26,4 +26,14 @@ object CommonHelper {
   def printSpentTime(startTime: Long) = println(s"Spent time: ${toMs(currentTime - startTime)}ms.")
 
   def printMemoryConsumed(startMem: Long) = println(s"\nMemory consumed: ${toMb(currentHeap - startMem)}mb.")
+
+  def withMetrics(block: => Unit) = {
+    val startTime = currentTime
+    val startMem = currentHeap
+
+    block
+
+    printSpentTime(startTime)
+    printMemoryConsumed(startMem)
+  }
 }
