@@ -31,6 +31,8 @@ object CommonHelper {
     val startTime = currentTime
     val startMem = currentHeap
 
+    println("compute...")
+
     block
 
     printSpentTime(startTime)

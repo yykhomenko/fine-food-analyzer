@@ -22,6 +22,8 @@ object App extends App {
       case "4" => translateFileComments(dfFrom(filePath), fromLang, toLang, outPath)
         printCheckDirectory(outPath)
 
+      case "5" => mostActiveUsersSQL(dfFrom(filePath))(1000).foreach(println)
+
       case _ => printUnknownActionAndExit()
     }
   }

@@ -22,4 +22,14 @@ object Translator {
       .distinct()
       .withColumn("Text", sqlfunc(col("Text")))
   }
+
+
+  def mostActiveUsersSQL(df: DataFrame)(number: Int): Array[String] = {
+
+    val result = df.groupBy("ProfileName").max("Id")//.count()
+//    val result = df.select("ProfileName").count()
+//    val result = df.count().toString
+
+    Array(result.toString)
+  }
 }
