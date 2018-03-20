@@ -1,6 +1,8 @@
 package org.test.analyzer.service
 
 import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.DataFrame
+import org.apache.spark.sql.functions.{col, count}
 import org.test.analyzer.extractor.FileLineExtractor._
 
 object Analyzer {
@@ -34,4 +36,14 @@ object Analyzer {
         .flatMap(_.split("\\W+")
           .filterNot(word => word.isEmpty || word.matches("\\d+")) //non-empty and non-digits
           .map(_.toLowerCase)))
+
+  def mostActiveUsersSQL(df: DataFrame)(number: Int): Array[String] = df
+    .groupBy("ProfileName")
+    .agg(count("Id"))
+    .orderBy(col("count(Id)").desc)
+    .limit(number)
+    .select("ProfileName")
+    .rdd
+    .collect()
+    .map(_.getString(0))
 }
