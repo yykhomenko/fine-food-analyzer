@@ -13,7 +13,6 @@ object Analyzer {
       .reduceByKey(_ + _)
       .sortBy(_._2, ascending = false)
       .take(number)
-      .sortBy(_._1)
       .map(_._1)
 
   def mostActiveUsers(rdd: RDD[String]): Int => Array[String] =
@@ -38,11 +37,23 @@ object Analyzer {
           .map(_.toLowerCase)))
 
   def mostActiveUsersSQL(df: DataFrame)(number: Int): Array[String] = df
+    .distinct()
     .groupBy("ProfileName")
     .agg(count("Id"))
     .orderBy(col("count(Id)").desc)
     .limit(number)
     .select("ProfileName")
+    .rdd
+    .collect()
+    .map(_.getString(0))
+
+  def mostCommentedFoodItemsSQL(df: DataFrame)(number: Int): Array[String] = df
+    .distinct()
+    .groupBy("ProductId")
+    .agg(count("Id"))
+    .orderBy(col("count(Id)").desc)
+    .limit(number)
+    .select("ProductId")
     .rdd
     .collect()
     .map(_.getString(0))

@@ -24,6 +24,8 @@ object App extends App {
 
       case "5" => mostActiveUsersSQL(dfFrom(filePath))(1000).foreach(println)
 
+      case "6" => mostCommentedFoodItemsSQL(dfFrom(filePath))(1000).foreach(println)
+
       case _ => printUnknownActionAndExit()
     }
   }
