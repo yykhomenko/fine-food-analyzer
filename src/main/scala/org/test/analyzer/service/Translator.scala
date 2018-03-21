@@ -14,8 +14,6 @@ object Translator {
 
   def translateComments(df: DataFrame, fromLang: String, toLang: String) = {
 
-    // In this place we must go to google translate over, for example, play! ws library with configured thread pool
-    // don’t have time
     val sqlfunc = udf((comment: String) => s"This comment was translated form \'$fromLang\' to \'$toLang\' language [" + comment + "]")
 
     df
