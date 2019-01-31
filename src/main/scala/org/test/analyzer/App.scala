@@ -29,4 +29,7 @@ object App extends App {
       case _ => printUnknownActionAndExit()
     }
   }
+
+  sc.stop()
+  ss.close()
 }
