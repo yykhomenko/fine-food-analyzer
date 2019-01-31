@@ -10,6 +10,6 @@ object SparkConfig {
   val sc = SparkContext.getOrCreate(conf)
   val ss = SparkSession.builder.config(conf).getOrCreate()
 
-  def dfFrom(path: String) = ss.read.option("header", "true").csv(path)
   def rddFrom(path: String) = { sc.setLogLevel("ERROR"); sc.textFile(path) }
+  def dfFrom(path: String) = ss.read.option("header", "true").csv(path)
 }
