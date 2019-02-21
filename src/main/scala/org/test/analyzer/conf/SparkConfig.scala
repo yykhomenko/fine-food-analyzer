@@ -5,7 +5,8 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 object SparkConfig {
 
-  lazy val conf = new SparkConf().setAppName("fine-food-analyzer").setMaster("local[*]")
+//  lazy val conf = new SparkConf().setAppName("fine-food-analyzer").setMaster("local[*]")
+  lazy val conf = new SparkConf().setAppName("fine-food-analyzer").setMaster("spark://192.168.0.15:7077")
 
   val sc = SparkContext.getOrCreate(conf)
   val ss = SparkSession.builder.config(conf).getOrCreate()
