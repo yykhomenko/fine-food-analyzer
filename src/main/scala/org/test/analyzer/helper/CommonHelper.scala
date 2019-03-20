@@ -7,7 +7,7 @@ object CommonHelper {
   def toMs(nanoseconds: Long) = nanoseconds / 1000000
   def toMb(bytes: Long) = bytes / 1048576
 
-  def printInfoAndExit() {
+  def printInfoAndExit() = {
     println("\nPlease type 2 arguments(input file path and number of action)\n\n" +
       "[path to Reviews.csv] [Number of task: 1..4] [fromLanguage] [toLanguage] [outPath]" +
       "\n" +
@@ -19,7 +19,7 @@ object CommonHelper {
     System.exit(1)
   }
 
-  def printUnknownActionAndExit() { println("Unknown action, please type action from 1 to 4"); System.exit(2) }
+  def printUnknownActionAndExit()  = { println("Unknown action, please type action from 1 to 4"); System.exit(2) }
 
   def printCheckDirectory(path: String) = println("\nTranslate completed! Check the directory \'" + path + '\'')
 

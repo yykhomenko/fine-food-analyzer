@@ -16,8 +16,6 @@ object Translator {
 
     val sqlfunc = udf((comment: String) => s"This comment was translated form \'$fromLang\' to \'$toLang\' language [" + comment + "]")
 
-    df
-      .distinct()
-      .withColumn("Text", sqlfunc(col("Text")))
+    df.distinct().withColumn("Text", sqlfunc(col("Text")))
   }
 }

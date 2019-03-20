@@ -7,34 +7,29 @@ import org.test.analyzer.extractor.FileLineExtractor._
 
 object Analyzer {
 
-  private def prepare(rdd: RDD[String])(number: Int): Array[String] =
-    rdd
-      .map((_, 1))
-      .reduceByKey(_ + _)
-      .sortBy(_._2, ascending = false)
-      .take(number)
-      .map(_._1)
+  private def prepare(rdd: RDD[String])(number: Int): Array[String] = rdd
+    .map((_, 1))
+    .reduceByKey(_ + _)
+    .sortBy(_._2, ascending = false)
+    .take(number)
+    .map(_._1)
 
   def mostActiveUsers(rdd: RDD[String]): Int => Array[String] =
-    prepare(
-      rdd
-        .distinct()
-        .map(extractProfileName))
+    prepare(rdd.distinct().map(extractProfileName))
 
   def mostCommentedFoodItems(rdd: RDD[String]): Int => Array[String] =
-    prepare(
-      rdd
-        .distinct()
-        .map(extractProductId))
+    prepare(rdd.distinct().map(extractProductId))
 
-  def mostUsedWords(rdd: RDD[String]): Int => Array[String] =
-    prepare(
-      rdd
-        .distinct()
-        .map(extractComment)
-        .flatMap(_.split("\\W+")
-          .filterNot(word => word.isEmpty || word.matches("\\d+")) //non-empty and non-digits
-          .map(_.toLowerCase)))
+  def mostUsedWords(rdd: RDD[String]): Int => Array[String] = prepare(
+    rdd
+      .distinct()
+      .map(extractComment)
+      .flatMap(
+        _.split("\\W+")
+          .filterNot(word => word.isEmpty || word.matches("\\d+"))
+          .map(_.toLowerCase)
+      )
+  )
 
   def mostActiveUsersSQL(df: DataFrame)(number: Int): Array[String] = df
     .distinct()
